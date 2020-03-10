@@ -5,7 +5,7 @@
 	<link href="star.png" rel="icon">
 	<link rel="stylesheet" type="text/css" href="dataTable.css">
 	<script src="jquery.min.js"></script>	
-	<script type="text/javascript" src="dataTable.js"></script>
+	<script type="text/javascript" src="datatable.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function (){
