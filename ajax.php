@@ -33,9 +33,6 @@ if( !empty($requestData['search']['value']) ) {
 	$result_usuarios.=" OR email LIKE '".$requestData['search']['value']."%' )";
 }
 
-//var_dump($result_usuarios);
-//exit;
-
 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 $totalFiltered = mysqli_num_rows($resultado_usuarios);
 
@@ -50,9 +47,11 @@ while($row_usuarios =mysqli_fetch_array($resultado_usuarios) ) {
 	$dado[] = $row_usuarios["id"];
 	$dado[] = $row_usuarios["nome"];
 	$dado[] = date('d/m/Y', strtotime($row_usuarios["nascimento"]));	
-	$dado[] = $row_usuarios["email"];	
+	$dado[] = $row_usuarios["email"];
+	$dado[] = '<a class="btn btn-info" href="view.php?id='.$row_usuarios["id"].'">Ver</a> - <button class="btn btn-danger confirm" value="delete.php?id='.$row_usuarios["id"].'">Excluir</button>';	
 	$dados[] = $dado;
 }
+
 
 //Cria o array de informações a serem retornadas para o Javascript
 $json_data = array(
